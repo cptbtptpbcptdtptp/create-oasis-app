@@ -1,11 +1,5 @@
-import {
-	BlinnPhongMaterial,
-	Camera,
-	MeshRenderer,
-	PrimitiveMesh,
-	Vector3,
-	WebGLEngine,
-} from "oasis-engine";
+import { BlinnPhongMaterial, Camera, MeshRenderer, PrimitiveMesh, Vector3, WebGLEngine } from "oasis-engine";
+import { MyComponent } from "../src/index";
 
 const engine = new WebGLEngine("canvas");
 engine.canvas.resizeByClientSize();
@@ -26,6 +20,7 @@ scene.ambientLight.diffuseIntensity = 1.2;
 
 // init cube
 const cubeEntity = rootEntity.createChild("cube");
+cubeEntity.addComponent(MyComponent);
 const renderer = cubeEntity.addComponent(MeshRenderer);
 const mtl = new BlinnPhongMaterial(engine);
 const color = mtl.baseColor;
